@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:restaurant_tour/repositories/yelp_repository.dart';
 
 part 'restaurant.g.dart';
 
@@ -85,7 +87,7 @@ class Location {
 }
 
 @JsonSerializable()
-class Restaurant {
+class Restaurant with ChangeNotifier {
   final String? id;
   final String? name;
   final String? price;
@@ -96,7 +98,7 @@ class Restaurant {
   final List<Review>? reviews;
   final Location? location;
 
-  const Restaurant({
+  Restaurant({
     this.id,
     this.name,
     this.price,
@@ -136,6 +138,32 @@ class Restaurant {
       return hours!.first.isOpenNow ?? false;
     }
     return false;
+  }
+
+  final List<Restaurant> _items = List.empty(growable: true);
+
+  List<Restaurant> get restaurants => [..._items];
+
+  Future<void> loadRestaurants() async {
+    final yelpRepo = YelpRepository();
+    try {
+      final result = await yelpRepo.getRestaurants();
+
+      if (result != null) {
+        _items.addAll(
+          result.restaurants!.map(
+            (restaurant) {
+              return restaurant;
+            },
+          ),
+        );
+        print('Fetched ${result.restaurants!.length} restaurants');
+      } else {
+        print('No restaurants fetched');
+      }
+    } catch (e) {
+      print('Failed to fetch restaurants: $e');
+    }
   }
 }
 
