@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppTextStyles {
   ////----- Lora -----//
+  static const loraRegularRating = TextStyle(
+    fontFamily: 'Lora',
+    fontWeight: FontWeight.w700,
+    fontSize: 28.0,
+  );
   static const loraRegularHeadline = TextStyle(
     fontFamily: 'Lora',
     fontWeight: FontWeight.w700,
     fontSize: 18.0,
+    color: Colors.black,
   );
   static const loraRegularTitle = TextStyle(
     fontFamily: 'Lora',

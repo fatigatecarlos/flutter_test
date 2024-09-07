@@ -8,4 +8,5 @@ class AppColors {
   static Color star = hexToColor('#FFB800');
   static Color restaurantOpen = hexToColor('#5CD313');
   static Color restaurantClose = hexToColor('#EA5E5E');
+  static Color dividerColor = hexToColor('#EEEEEE');
 }

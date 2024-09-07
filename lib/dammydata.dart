@@ -31,7 +31,7 @@ final dummyRestaurants = [
           id: "0bQNLf0POLTW4VhQZqOZoQ",
           imageUrl:
               "https://s3-media3.fl.yelpcdn.com/photo/i_0K5RUOQnoIw1c4QzHmTg/o.jpg",
-          name: "Glydel L.",
+          name: null,
         ),
       ),
     ],
@@ -85,7 +85,10 @@ final dummyRestaurants = [
         text:
             "Our last meal in Vegas was amazing at Yardbird. We have been to the Yardbird in Chicago so we thought we knew what to expect; however, we were blown away by...",
         user: User(
-            id: "10oig4nwHnOAnAApdYvNrg", imageUrl: null, name: "Ellie K."),
+          id: "10oig4nwHnOAnAApdYvNrg",
+          imageUrl: null,
+          name: "Ellie K.",
+        ),
       ),
     ],
     categories: [
